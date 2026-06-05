@@ -1,0 +1,88 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css");
+
+.heartbroken-outer {
+  display: inline-block;
+}
+
+.heartbroken-margin {
+  display: inline-block;
+  padding: 10px;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.heartbroken-margin::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(103, 128, 159, 0.5);
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.5s ease;
+  opacity: 1;
+}
+
+.heartbroken-margin:hover::before {
+  opacity: 0;
+}
+
+.heartbroken-image-area {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+}
+
+.heartbroken-img-main {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  opacity: 1;
+}
+
+.heartbroken-img-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  max-width: 100%;
+  height: auto;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.heartbroken-image-area:hover .heartbroken-img-hover {
+  opacity: 0.75;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.heartbroken-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.5rem;
+  color: rgba(103, 128, 159, 0.5);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 3;
+  pointer-events: none;
+}
+.heartbroken-image-area:hover .heartbroken-icon {
+  opacity: 1;
+  animation: heartbeat 1.2s ease-in-out 0.5s infinite;
+}
