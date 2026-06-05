@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400&family=Special+Elite&display=swap");
+
+.shroom-main {
+  display: block;
+  width: fit-content;
+  margin: 20px auto;
+  border: 6px solid #000;
+  position: relative;
+  background: transparent;
+  overflow: visible;
+}
+
+.shroom-box {
+  width: 250px;
+  height: 150px;
+  overflow: hidden;
+  position: relative;
+}
+
+.shroom-box img {
+  width: 300px;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: grayscale(0);
+}
+
+.shroom-moss {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100%;
+  background: #88b394;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.shroom-poem {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  transform: translateY(-50%);
+  width: 90px;
+  font-family: "Outfit", sans-serif;
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 1.4;
+  color: white;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease 0.1s;
+  z-index: 2;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+  text-transform: uppercase;
+}
+
+.shroom-ashes,
+.shroom-burning {
+  font-family: "Special Elite", cursive;
+  letter-spacing: 0.5px;
+  text-shadow: none;
+}
+
+.shroom-flicker {
+  animation: shroom-flicker-animation 0.5s infinite alternate;
+}
+
+@keyframes shroom-flicker-animation {
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    opacity: 1;
+  }
+  20%,
+  22%,
+  24%,
+  55% {
+    opacity: 0.3;
+  }
+}
+
+.shroom-main::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: -7px;
+  right: -7px;
+  bottom: -7px;
+  border: 1px solid transparent;
+  transition: border-color 0.3s ease;
+  pointer-events: none;
+}
+
+.shroom-main:hover img {
+  transform: translateX(-50px);
+  filter: grayscale(100%);
+}
+.shroom-main:hover .shroom-moss {
+  opacity: 0.25;
+}
+.shroom-main:hover .shroom-poem {
+  opacity: 1;
+}
+.shroom-main:hover::before {
+  border-color: #88b394;
+}
